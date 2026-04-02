@@ -1,48 +1,42 @@
 # FlowCytometryWorkspace
 
-This template should help get you started developing with Vue 3 in Vite.
+## 项目介绍
+FlowCytometryWorkspace 前端工程，基于 Vue 3 + Vite 开发。
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## 使用方法
 
 ```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+打开终端里 `vite` 输出的地址即可。
 
-```sh
-pnpm build
-```
+## 交互标注
 
-### Lint with [ESLint](https://eslint.org/)
+下方画布支持手动标注（按钮在页面上方）：
 
-```sh
-pnpm lint
-```
+1. `crosshair`：点击散点区域，画十字虚线（松手后会自动回到 `undefined`）。
+2. `rect`：按住鼠标在起点拖拽矩形，松开后生成矩形区域边框（自动回到 `undefined`）。
+3. `polygon`：连续点击顶点；点击起始点附近完成后生成多边形，生成后需要先点 `clear` 才能重新画。
+4. `undefined`：关闭绘制模式。
+5. `clear`：清除当前手动画（并取消临时绘制状态）。
+
+上方画布为 AI 分割结果：绿色多边形控制点可拖动微调形状。
+
+## 使用了哪些库
+
+运行依赖：
+- vue
+- vue-router
+- pinia
+- pixi.js
+- uuid
+
+开发依赖：
+- vite
+- vue-tsc
+- @vitejs/plugin-vue
+- @vitejs/plugin-vue-jsx
+- eslint
+- oxlint / oxfmt
